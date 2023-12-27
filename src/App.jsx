@@ -12,7 +12,7 @@ const App = () => {
     <div className="px-[170px]">
       <section className="h-[100vh]">
         <nav className="flex h-[17vh] justify-between items-center px-[130px]">
-          <h1 className="text-[32px]">Abhishek Seth</h1>
+          <h1 className="text-[32px]">Abhishek Seths</h1>
           <NavigationOptions />
         </nav>
         <main className="h-[83vh] grid place-content-center">
