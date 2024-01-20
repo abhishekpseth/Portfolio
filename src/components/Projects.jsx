@@ -37,7 +37,7 @@ const Projects = ({ sortOption, stack }) => {
     },
     {
       projectNo: 5,
-      projectName: "Code Editors",
+      projectName: "Code Editor",
       imgSrc: "././images/code-editor.jpg",
       github: "https://github.com/abhishekpseth/Deployed-React.js-Projects/tree/main/Code%20Editor",
       weblink: "https://codeeditor-project.netlify.app/",
