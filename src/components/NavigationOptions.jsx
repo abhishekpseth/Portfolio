@@ -1,17 +1,51 @@
 import React from "react";
+import ThemeBtn from "./ThemeBtn";
 
-const NavigationOptions = () => {
+const NavigationOptions = ({ direction }) => {
   return (
-    <ul className="flex justify-between gap-[2rem] text-[24px]">
+    <ul
+      className={`flex justify-between items-center text-[20px] sm:text-[24px] ${
+        direction === "vertical"
+          ? "flex-col gap-[8px] dark:text-black"
+          : "gap-[16px]"
+      }`}
+    >
       <a href="#about">
-        <li>About</li>
+        <li
+          className={`${
+            direction !== "vertical"
+              ? "hover:underline dark:hover:line-through"
+              : ""
+          }`}
+        >
+          About
+        </li>
       </a>
       <a href="#projects">
-        <li>Projects</li>
+        <li
+          className={`${
+            direction !== "vertical"
+              ? "hover:underline dark:hover:line-through"
+              : ""
+          }`}
+        >
+          Projects
+        </li>
       </a>
       <a href="#contact">
-        <li>Contact</li>
+        <li
+          className={`${
+            direction !== "vertical"
+              ? "hover:underline dark:hover:line-through"
+              : ""
+          }`}
+        >
+          Contact
+        </li>
       </a>
+      <li>
+        <ThemeBtn direction={direction} />
+      </li>
     </ul>
   );
 };
