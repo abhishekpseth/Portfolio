@@ -16,7 +16,9 @@ const Navbar = () => {
 
   return (
     <div className="relative h-[20vh]">
-      <div className="bg-[#0099ff] md:hidden w-screen h-[6vh]"></div>
+      {themeMode === "light" && (
+        <div className="bg-[#0099ff] md:hidden w-screen h-[6vh]"></div>
+      )}
       {themeMode === "light" && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -53,7 +55,7 @@ const Navbar = () => {
               showDrawer ? "left-[60vw]" : ""
             } md:hidden`}
           >
-            <div className="bg-white text-[20px] p-[8px] rounded-full grid place-content-center dark:text-black cursor-pointer">
+            <div className="bg-white text-[20px] p-[8px] rounded-full grid place-content-center text-black dark:text-black cursor-pointer">
               <ImCross onClick={onClose} />
             </div>
             <NavigationOptions direction="vertical" />

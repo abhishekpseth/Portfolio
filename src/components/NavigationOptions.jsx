@@ -6,8 +6,8 @@ const NavigationOptions = ({ direction }) => {
     <ul
       className={`flex justify-between items-center text-[20px] sm:text-[24px] ${
         direction === "vertical"
-          ? "flex-col gap-[8px] dark:text-black"
-          : "gap-[16px]"
+          ? "flex-col gap-[8px] text-black dark:text-black"
+          : "gap-[16px] "
       }`}
     >
       <a href="#about">

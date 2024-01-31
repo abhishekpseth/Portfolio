@@ -5,12 +5,12 @@ import useTheme from "../contexts/theme";
 const ContactArea = () => {
   const { themeMode } = useTheme();
   return (
-    <div className="relative w-screen grid place-content-center">
+    <div className="relative w-screen flex flex-col items-center justify-center">
       {themeMode === "light" && (
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1440 320"
-          className="z-[-10] w-screen absolute top-[-30vh]"
+          className="z-[-10] w-screen scale-y-105"
         >
           <path
             fill="#0099ff"
@@ -19,24 +19,28 @@ const ContactArea = () => {
           ></path>
         </svg>
       )}
-      <nav className="flex flex-col justify-center items-center">
-        <p className="text-black dark:text-white text-[16px] sm:text-[20px]">Get in Touch</p>
-        <h1 className="text-3xl sm:text-5xl  font-bold text-textLight dark:text-white">
-          Contact Me
-        </h1>
-      </nav>
-      <main className="w-fit px-[16px] py-[16px] mt-[40px] flex flex-col gap-[10px] justify-center items-center border border-1 border-textLight rounded-[40px] dark:text-white mb-[10vh]">
-        <div className="flex gap-[8px] items-center">
-          <ImMail4 className="text-xl sm:text-4xl text-textLight dark:text-gray" />
-          <h1 className="text-sm sm:text-2xl">abhishekpseth@gmail.com</h1>
-        </div>
+      <div className="grid place-content-center absolute top-[10vh] lg:top-[30vh]">
+        <nav className="flex flex-col justify-center items-center">
+          <p className="text-black dark:text-white text-[16px] sm:text-[20px]">
+            Get in Touch
+          </p>
+          <h1 className="text-3xl sm:text-5xl  font-bold text-textLight dark:text-white">
+            Contact Me
+          </h1>
+        </nav>
+        <main className="w-fit px-[16px] py-[16px] mt-[40px] flex flex-col gap-[10px] justify-center items-center border border-1 border-textLight rounded-[40px] dark:text-white mb-[10vh]">
+          <div className="flex gap-[8px] items-center">
+            <ImMail4 className="text-xl sm:text-4xl text-textLight dark:text-gray" />
+            <h1 className="text-sm sm:text-2xl">abhishekpseth@gmail.com</h1>
+          </div>
 
-        <div className="flex gap-[8px] items-center">
-          <FaLinkedin className="text-xl sm:text-4xl text-textLight dark:text-gray" />
-          <h1 className="text-sm sm:text-2xl">abhishekpseth</h1>
-        </div>
-      </main>
-      <div className="z-[-10] w-screen dark:hidden absolute top-[10vh] h-[32vh] bg-[#0099ff]"></div>
+          <div className="flex gap-[8px] items-center">
+            <FaLinkedin className="text-xl sm:text-4xl text-textLight dark:text-gray" />
+            <h1 className="text-sm sm:text-2xl">abhishekpseth</h1>
+          </div>
+        </main>
+      </div>
+      <div className="z-[-10] w-screen h-[40vh] dark:hidden bg-[#0099ff]"></div>
     </div>
   );
 };
