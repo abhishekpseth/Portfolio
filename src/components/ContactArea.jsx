@@ -19,7 +19,7 @@ const ContactArea = () => {
           ></path>
         </svg>
       )}
-      <div className="grid place-content-center absolute top-[10vh] lg:top-[30vh]">
+      <div className={themeMode==="light"?"grid place-content-center absolute top-[10vh] lg:top-[30vh]":""}>
         <nav className="flex flex-col justify-center items-center">
           <p className="text-black dark:text-white text-[16px] sm:text-[20px]">
             Get in Touch
