@@ -21,7 +21,11 @@ const Skills = () => {
     },
     {
       skill: "React",
-      rating: "Beginner",
+      rating: "Intermediate",
+    },
+    {
+      skill: "Tailwind CSS",
+      rating: "Intermediate",
     },
     {
       skill: "GIT",
@@ -47,7 +51,7 @@ const Skills = () => {
         </svg>
       )}
       <div className="xl:absolute w-full h-full grid place-content-center bg-[#0099ff] dark:bg-transparent xl:bg-transparent">
-        <div className="relative flex flex-col justify-center items-center md:items-start gap-[100px] md:flex-row  dark:text-white">
+        <div className="relative flex flex-col justify-center items-center md:items-start gap-[100px] md:flex-row dark:text-white">
           <div className="w-[80%] md:w-[50%]">
             <div className="flex flex-col justify-center items-center text-center">
               <p className="text-[16px] sm:text-[20px]">Get to know More</p>
