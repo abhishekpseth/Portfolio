@@ -1,9 +1,10 @@
 import { Introduction, Skills, ProjectArea, ContactArea } from "./components";
 import { useEffect, useState } from "react";
 import { ThemeProvider } from "./contexts/theme";
+import GridBackgroundTheme from "./components/GridBackgroundTheme";
 
 const App = () => {
-  const [themeMode, setThemeMode] = useState("light");
+  const [themeMode, setThemeMode] = useState("dark");
 
   const lightTheme = () => {
     setThemeMode("light");
@@ -21,28 +22,32 @@ const App = () => {
 
   return (
     <ThemeProvider value={{ themeMode, lightTheme, darkTheme }}>
-      
-      <div className="px-[30px] lg:px-[130px] md:px-[60px] dark:bg-black">
-        <section className="min-h-[100vh] ">
-          <Introduction />
-        </section>
+      {themeMode === "dark" ? <GridBackgroundTheme /> : ""}
+      <>
+        <div className="dark:bg-transparent overflow-hidden">
+          <section className="min-h-[100vh]">
+            <Introduction />
+          </section>
 
-        <section id="about" className="min-h-[100vh]">
-          <Skills />
-        </section>
+          <section id="about" className="relative">
+            <Skills />
+          </section>
 
-        <section
-          id="projects"
-          className="min-h-[100vh] flex flex-col items-center"
-        >
-          <ProjectArea />
-        </section>
+          <section
+            id="projects"
+            className="px-[30px] lg:px-[130px] md:px-[60px] min-h-[100vh] flex flex-col items-center"
+          >
+            <ProjectArea />
+          </section>
 
-        <section id="contact" className="h-[80vh] grid place-content-center">
-          <ContactArea />
-        </section>
-        {/* <footer className="h-[5vh] grid place-content-center bg-yellow-400"></footer> */}
-      </div>
+          <section
+            id="contact"
+            className="px-[30px] lg:px-[130px] md:px-[60px] h-[80vh] flex flex-col justify-end items-center"
+          >
+            <ContactArea />
+          </section>
+        </div>
+      </>
     </ThemeProvider>
   );
 };

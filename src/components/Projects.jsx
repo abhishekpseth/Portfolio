@@ -169,7 +169,7 @@ const Projects = ({ sortOption, stack }) => {
     <main className="w-[100%] flex flex-wrap gap-[40px] mt-[20px] justify-center items-center">
       {stackProjectsArray.map((_, index) => (
         <div key={stackProjectsArray[index].projectNo}>
-          <div className="px-[1rem] py-[1rem] gap-[8px] flex flex-col justify-center items-center border border-1 border-gray rounded-[32px] bg-extraDrakGray dark:text-white">
+          <div className="px-[1rem] py-[1rem] gap-[8px] flex flex-col justify-center items-center border border-1 border-gray rounded-[32px] bg-extraDrakGray dark:text-white dark:bg-black">
             {stack === "JS" && stackProjectsArray[index].projectNo === 7 ? (
               <iframe
                 className="w-[250px] h-[250px] border rounded-[28px]"

@@ -14,6 +14,7 @@ export default {
         gray: "rgb(85, 85, 85);",
         darkGray: "rgb(53, 53, 53)",
         extraDarkGray: "rgb(250, 250, 250)",
+        textLight: "white",
       },
     },
   },
