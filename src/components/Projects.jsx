@@ -5,30 +5,6 @@ const Projects = ({ sortOption, stack }) => {
   const reactProjectsArray = [
     {
       projectNo: 1,
-      projectName: "Brand Page",
-      imgSrc: "././images/brand-page.jpg",
-      github:
-        "https://github.com/abhishekpseth/Deployed-React.js-Projects/tree/main/Brand-Page",
-      weblink: "https://brand-page-project.netlify.app/",
-    },
-    {
-      projectNo: 2,
-      projectName: "Contact Page",
-      imgSrc: "././images/contact-page.jpg",
-      github:
-        "https://github.com/abhishekpseth/Deployed-React.js-Projects/tree/main/Contact-Page",
-      weblink: "https://contactpage-project.netlify.app/",
-    },
-    {
-      projectNo: 3,
-      projectName: "Dice Game",
-      imgSrc: "././images/dice-game.jpg",
-      github:
-        "https://github.com/abhishekpseth/Deployed-React.js-Projects/tree/main/Dice-Game",
-      weblink: "https://guess-dice-game-project.netlify.app/",
-    },
-    {
-      projectNo: 4,
       projectName: "Firebase Contact App",
       imgSrc: "././images/firebase-contact-app.jpg",
       github:
@@ -36,7 +12,7 @@ const Projects = ({ sortOption, stack }) => {
       weblink: "https://firebase-contact-app-crud.netlify.app/",
     },
     {
-      projectNo: 5,
+      projectNo: 2,
       projectName: "Code Editor",
       imgSrc: "././images/code-editor.jpg",
       github:
@@ -44,7 +20,7 @@ const Projects = ({ sortOption, stack }) => {
       weblink: "https://codeeditor-project.netlify.app/",
     },
     {
-      projectNo: 6,
+      projectNo: 3,
       projectName: "Search Bar",
       imgSrc: "././images/search-bar.jpg",
       github:
@@ -52,12 +28,20 @@ const Projects = ({ sortOption, stack }) => {
       weblink: "https://search-bar-with-chips.netlify.app/",
     },
     {
-      projectNo: 7,
+      projectNo: 4,
       projectName: "Algorithm Visualizer",
       imgSrc: "././images/algorithm-visualizer.jpg",
       github:
         "https://github.com/abhishekpseth/Deployed-React.js-Projects/tree/main/Algorithms%20Visualizer",
       weblink: "https://algorithm-visualizer-tool-project.netlify.app/",
+    },
+    {
+      projectNo: 5,
+      projectName: "Google Sheets Clone",
+      imgSrc: "././images/google-sheets-clone.jpg",
+      github:
+        "https://github.com/abhishekpseth/Deployed-React.js-Projects/tree/main/google-sheet",
+      weblink: "https://google-sheets-clone-project.netlify.app/",
     },
   ];
 
