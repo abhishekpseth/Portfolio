@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { useEffect, useRef } from "react";
 import { useState } from "react";
+import Meteors from "./Meteors/Meteors";
 
 const GridBackgroundTheme = ({ children }) => {
   const arr = Array(350).fill(0);
@@ -24,7 +25,7 @@ const GridBackgroundTheme = ({ children }) => {
 
   return (
     <div className="fixed top-0 left-0 w-screen h-screen overflow-hidden bg-black -z-10 opacity-85">
-      <div className="container mx-auto max-w-full relative h-full w-full">
+      <div className="container relative w-full h-full max-w-full mx-auto">
         {arr.map((_, index) => (
           <span
             key={index}
@@ -37,6 +38,7 @@ const GridBackgroundTheme = ({ children }) => {
         ref={cursorRef}
         className="cursor absolute w-[125px] h-[125px] z-[-10] rounded-full bg-green-500"
       ></div>
+      <Meteors number={3}/>
     </div>
   );
 };
