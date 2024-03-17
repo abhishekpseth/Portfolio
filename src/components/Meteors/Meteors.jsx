@@ -23,8 +23,8 @@ const Meteors = ({ number = 20 }) => {
           key={"meteor" + idx}
           className="absolute z-10 meteor-effect rotate-[215deg]"
           style={{
-            top: `${Math.random() * 40}%`,
-            left: `${Math.random() * 40}%`,
+            top: `${Math.random() * 80}%`,
+            left: `${Math.random() * 60}%`,
             animationDelay: `${Math.random() * (0.8 - 0.2) + 0.2}s`,
             animationDuration: `${Math.floor(Math.random() * (10 - 2) + 2)}s`,
           }}
