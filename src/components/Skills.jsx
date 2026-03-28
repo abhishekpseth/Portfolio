@@ -9,27 +9,36 @@ const Skills = () => {
   const skillsList = [
     {
       skill: "HTML",
-      rating: "Experienced",
     },
     {
       skill: "CSS",
-      rating: "Experienced",
     },
     {
       skill: "JS",
-      rating: "Intermediate",
     },
     {
       skill: "React",
-      rating: "Intermediate",
+    },
+    {
+      skill: "Redux",
     },
     {
       skill: "Tailwind CSS",
-      rating: "Intermediate",
+    },
+    {
+      skill: "Node.js",
+    },
+    {
+      skill: "Express.js",
+    },
+    {
+      skill: "MongoDB",
+    },
+    {
+      skill: "AWS s3",
     },
     {
       skill: "GIT",
-      rating: "Intermediate",
     },
   ];
 
@@ -53,9 +62,9 @@ const Skills = () => {
       <div className="xl:absolute w-full h-full grid place-content-center bg-[#0099ff] dark:bg-transparent xl:bg-transparent">
         <div className="relative flex flex-col justify-center items-center md:items-start gap-[100px] md:flex-row dark:text-white">
           <div className="w-[80%] md:w-[50%]">
-            <div className="flex flex-col justify-center items-center text-center">
+            <div className="flex flex-col items-center justify-center text-center">
               <p className="text-[16px] sm:text-[20px]">Get to know More</p>
-              <h1 className="text-3xl sm:text-5xl font-bold text-white">
+              <h1 className="text-3xl font-bold text-white sm:text-5xl">
                 About Me
               </h1>
             </div>
@@ -66,8 +75,20 @@ const Skills = () => {
                   <BsPersonWorkspace />
                 </div>
                 <h3 className="font-bold text-textLight">Experience</h3>
-                <p>Fresher</p>
-                <p>Frontend Developer</p>
+                {/* <p>Fresher</p> */}
+                <div className="flex flex-col gap-4">
+                  <div>
+                    <p>FuturElectra</p>
+                    <p>SDE-1</p>
+                    <p className="text-sm">(November 2023 - Present)</p>
+                  </div>
+
+                  <div>
+                    <p>Aquaria Core</p>
+                    <p>Fullstack Developer Intern</p>
+                    <p className="text-sm">(May 2023 - October 2023)</p>
+                  </div>
+                </div>
               </div>
 
               <div className=" w-[90%] py-[20px] flex flex-col justify-center items-center text-center border border-1 border-white rounded-2xl">
@@ -82,9 +103,9 @@ const Skills = () => {
           </div>
 
           <div className="w-[100%] md:w-[50%] ">
-            <div className="flex flex-col justify-center items-center text-center">
+            <div className="flex flex-col items-center justify-center text-center">
               <p className="text-[16px] sm:text-[20px]">Explore My</p>
-              <h1 className="text-3xl sm:text-5xl font-bold text-white">
+              <h1 className="text-3xl font-bold text-white sm:text-5xl">
                 Skills
               </h1>
             </div>

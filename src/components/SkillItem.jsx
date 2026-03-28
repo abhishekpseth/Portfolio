@@ -7,7 +7,7 @@ const SkillItem = ({ skill, rating }) => {
       <FaCircleCheck className="text-textLight"/>
       <div className="flex flex-col">
         <h5 className="font-bold h-[16px] flex items-center">{skill}</h5>
-        <h6 className="">{rating}</h6>
+        {/* <h6 className="">{rating}</h6> */}
       </div>
     </div>
   );

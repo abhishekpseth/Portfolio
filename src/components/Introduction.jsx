@@ -8,21 +8,21 @@ const Introduction = () => {
     <>
       <Navbar />
       <main className="h-[83vh] grid place-content-center">
-        <div className="flex flex-col justify-center items-center gap-8 text-center lg:flex-row">
+        <div className="flex flex-col items-center justify-center gap-8 text-center lg:flex-row">
           <img
             src="././images/profile-pic.JPG"
             alt="File Picture"
             className="h-[250px] w-[250px] rounded-full lg:h-[400px] lg:w-[400px] md:h-[300px] md:w-[300px]"
           />
           <div className="flex flex-col gap-[4px]">
-            <p className="text-gray font-medium">Hello, I'm</p>
+            <p className="font-medium text-gray">Hello, I'm</p>
             <h1 className="font font-semibold text-[26px] sm:text-4xl dark:text-white">
               Abhishek Prasad Seth
             </h1>
             <h2 className="text-gray font font-semibold text-[24px] sm:text-[28px]">
-              Frontend Developer
+              Software Engineer (2 YoE)
             </h2>
-            <div className="flex gap-4 justify-center items-center">
+            <div className="flex items-center justify-center gap-4">
               <Button
                 section="introduction"
                 text="Download CV"
@@ -39,7 +39,7 @@ const Introduction = () => {
                 target=""
               />
             </div>
-            <div className="flex gap-4 justify-center items-center dark:text-white">
+            <div className="flex items-center justify-center gap-4 dark:text-white">
               <a
                 href="https://www.linkedin.com/in/abhishek-p-seth/"
                 target="_blank"
