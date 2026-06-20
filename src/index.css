@@ -66,7 +66,61 @@ section {
   gap: 1px;
 }
 
-.cursor {
+/* ---- Rocket cursor (dark mode) -------------------------------------- */
+/* Hide the native cursor over plain page areas… */
+html.dark,
+html.dark * {
+  cursor: none;
+}
+/* …but restore it on anything the user can click or type into, so the
+   rocket steps aside and the normal pointer/text cursor returns. */
+html.dark a,
+html.dark button,
+html.dark label,
+html.dark summary,
+html.dark [role="button"] {
+  cursor: pointer;
+}
+html.dark input,
+html.dark textarea,
+html.dark select,
+html.dark [contenteditable="true"] {
+  cursor: auto;
+}
+
+.rocket-cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  /* Smooth the heading change; position (left/top) stays instant. */
+  transition: transform 0.18s ease-out, opacity 0.15s ease-out;
+}
+
+.rocket {
+  position: relative;
+  z-index: 2;
+  display: block;
+  font-size: 26px;
+  line-height: 1;
+  /* The 🚀 glyph points up-right (−45°); rotate +45° so its nose aligns
+     with the wrapper's forward (0°) axis, which JS aims along the cursor's
+     direction of travel. */
+  transform: rotate(45deg);
+  filter: drop-shadow(0 0 6px rgba(52, 211, 153, 0.55));
+}
+
+/* Glowing thruster behind the rocket. */
+.rocket-glow {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 90px;
+  height: 90px;
+  border-radius: 9999px;
+  background: var(--accent);
   transform: translate(-50%, -50%);
   -webkit-animation: hue 6s linear infinite;
   animation: hue 6s linear infinite;
@@ -87,6 +141,27 @@ section {
   }
   100% {
     filter: hue-rotate(360deg) blur(60px);
+  }
+}
+
+/* ---- Starfield (dark mode, scroll-revealed) -------------------------- */
+.star {
+  position: absolute;
+  border-radius: 9999px;
+  background: #ffffff;
+  box-shadow: 0 0 4px 1px rgba(255, 255, 255, 0.5);
+  animation: twinkle ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
   }
 }
 
