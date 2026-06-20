@@ -7,19 +7,27 @@ import { profile } from "../data/portfolio";
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
-  const initials = profile.name
-    .split(" ")
-    .map((n) => n[0])
-    .slice(0, 2)
-    .join("");
-
   return (
     <>
       <header className="fixed inset-x-0 top-0 z-50 border-b border-line bg-bg/70 backdrop-blur-md">
         <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6 lg:px-8">
         <a href="#" className="flex items-center gap-2">
-          <span className="grid h-9 w-9 place-content-center rounded-lg bg-accent font-display text-sm font-bold text-[#0a0a0a]">
-            {initials}
+          <span className="grid h-9 w-9 place-content-center rounded-lg bg-accent text-[#0a0a0a]">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 32 32"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.4"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <polyline points="12,12 7,16 12,20" />
+              <polyline points="20,12 25,16 20,20" />
+              <line x1="18" y1="10" x2="14" y2="22" />
+            </svg>
           </span>
           <span className="hidden font-display font-semibold text-ink sm:block">
             {profile.name.split(" ")[0]}{" "}
