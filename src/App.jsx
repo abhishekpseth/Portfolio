@@ -1,53 +1,62 @@
-import { Introduction, Skills, ProjectArea, ContactArea } from "./components";
 import { useEffect, useState } from "react";
+import {
+  Navbar,
+  Introduction,
+  About,
+  Experience,
+  Skills,
+  Projects,
+  ContactArea,
+  Footer,
+} from "./components";
 import { ThemeProvider } from "./contexts/theme";
 import GridBackgroundTheme from "./components/GridBackgroundTheme";
 
 const App = () => {
   const [themeMode, setThemeMode] = useState("dark");
 
-  const lightTheme = () => {
-    setThemeMode("light");
-  };
-
-  const darkTheme = () => {
-    setThemeMode("dark");
-  };
+  const lightTheme = () => setThemeMode("light");
+  const darkTheme = () => setThemeMode("dark");
 
   useEffect(() => {
-    // here theme changes
-    document.querySelector("html").classList.remove("light", "dark");
-    document.querySelector("html").classList.add(themeMode);
+    const html = document.querySelector("html");
+    html.classList.remove("light", "dark");
+    html.classList.add(themeMode);
   }, [themeMode]);
 
   return (
     <ThemeProvider value={{ themeMode, lightTheme, darkTheme }}>
-      {themeMode === "dark" ? <GridBackgroundTheme /> : ""}
-      <>
-        <div className="dark:bg-transparent overflow-hidden">
-          <section className="min-h-[100vh]">
-            <Introduction />
-          </section>
+      {themeMode === "dark" && <GridBackgroundTheme />}
 
-          <section id="about" className="relative">
-            <Skills />
-          </section>
+      <div className="min-h-screen bg-bg text-ink dark:bg-transparent">
+        <Navbar />
 
-          <section
-            id="projects"
-            className="px-[30px] lg:px-[130px] md:px-[60px] min-h-[100vh] flex flex-col items-center"
-          >
-            <ProjectArea />
-          </section>
+        <section id="home">
+          <Introduction />
+        </section>
 
-          <section
-            id="contact"
-            className="px-[30px] lg:px-[130px] md:px-[60px] h-[80vh] flex flex-col justify-end items-center"
-          >
-            <ContactArea />
-          </section>
-        </div>
-      </>
+        <section id="about">
+          <About />
+        </section>
+
+        <section id="experience">
+          <Experience />
+        </section>
+
+        <section id="skills">
+          <Skills />
+        </section>
+
+        <section id="projects">
+          <Projects />
+        </section>
+
+        <section id="contact">
+          <ContactArea />
+        </section>
+
+        <Footer />
+      </div>
     </ThemeProvider>
   );
 };

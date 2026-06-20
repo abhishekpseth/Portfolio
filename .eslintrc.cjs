@@ -16,5 +16,7 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
+    // This project uses plain prop destructuring, not PropTypes/TS.
+    'react/prop-types': 'off',
   },
 }

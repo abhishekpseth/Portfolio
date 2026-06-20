@@ -1,46 +1,82 @@
-import { FaLinkedin } from "react-icons/fa";
-import { ImMail4 } from "react-icons/im";
-import useTheme from "../contexts/theme";
+import { FiMail, FiPhone } from "react-icons/fi";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { SiLeetcode } from "react-icons/si";
+import SectionHeading from "./SectionHeading";
+import Button from "./Button";
+import { profile } from "../data/portfolio";
 
 const ContactArea = () => {
-  const { themeMode } = useTheme();
   return (
-    <div className="relative w-screen flex flex-col items-center justify-center">
-      {themeMode === "light" && (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1440 320"
-          className="z-[-10] w-screen scale-y-105"
-        >
-          <path
-            fill="#0099ff"
-            fillOpacity="1"
-            d="M0,224L80,213.3C160,203,320,181,480,149.3C640,117,800,75,960,85.3C1120,96,1280,160,1360,192L1440,224L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
-          ></path>
-        </svg>
-      )}
-      <div className={themeMode==="light"?"grid place-content-center absolute top-[10vh] lg:top-[30vh]":""}>
-        <nav className="flex flex-col justify-center items-center">
-          <p className="text-black dark:text-white text-[16px] sm:text-[20px]">
-            Get in Touch
-          </p>
-          <h1 className="text-3xl sm:text-5xl  font-bold text-textLight dark:text-white">
-            Contact Me
-          </h1>
-        </nav>
-        <main className="w-fit px-[16px] py-[16px] mt-[40px] flex flex-col gap-[10px] justify-center items-center border border-1 border-textLight rounded-[40px] dark:text-white mb-[10vh]">
-          <div className="flex gap-[8px] items-center">
-            <ImMail4 className="text-xl sm:text-4xl text-textLight dark:text-gray" />
-            <h1 className="text-sm sm:text-2xl">abhishekpseth@gmail.com</h1>
-          </div>
+    <div className="mx-auto max-w-3xl px-6 py-24 lg:px-8">
+      <SectionHeading eyebrow="Let's connect" title="Get in touch" />
 
-          <div className="flex gap-[8px] items-center">
-            <FaLinkedin className="text-xl sm:text-4xl text-textLight dark:text-gray" />
-            <h1 className="text-sm sm:text-2xl">abhishekpseth</h1>
-          </div>
-        </main>
+      <div className="mt-12 rounded-2xl border border-line bg-surface p-8 text-center sm:p-10">
+        <p className="mx-auto max-w-md text-muted">
+          Have a role, a project, or just want to say hi? My inbox is always
+          open — I&apos;ll get back to you.
+        </p>
+
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <Button
+            text="Email me"
+            href={`mailto:${profile.email}`}
+            variant="primary"
+            icon={<FiMail />}
+          />
+          <Button
+            text="LinkedIn"
+            href={profile.socials.linkedin}
+            target="_blank"
+            variant="ghost"
+            icon={<FaLinkedin />}
+          />
+        </div>
+
+        <div className="mt-10 grid gap-4 border-t border-line pt-8 text-sm sm:grid-cols-2">
+          <a
+            href={`mailto:${profile.email}`}
+            className="flex items-center justify-center gap-2 text-muted transition-colors hover:text-accent"
+          >
+            <FiMail /> {profile.email}
+          </a>
+          <a
+            href={`tel:${profile.phone.replace(/\s/g, "")}`}
+            className="flex items-center justify-center gap-2 text-muted transition-colors hover:text-accent"
+          >
+            <FiPhone /> {profile.phone}
+          </a>
+        </div>
+
+        <div className="mt-8 flex items-center justify-center gap-6 text-2xl text-muted">
+          <a
+            href={profile.socials.linkedin}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="LinkedIn"
+            className="transition-colors hover:text-accent"
+          >
+            <FaLinkedin />
+          </a>
+          <a
+            href={profile.socials.github}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="GitHub"
+            className="transition-colors hover:text-accent"
+          >
+            <FaGithub />
+          </a>
+          <a
+            href={profile.socials.leetcode}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="LeetCode"
+            className="transition-colors hover:text-accent"
+          >
+            <SiLeetcode />
+          </a>
+        </div>
       </div>
-      <div className="z-[-10] w-screen h-[40vh] dark:hidden bg-[#0099ff]"></div>
     </div>
   );
 };

@@ -1,51 +1,31 @@
-import React from "react";
-import ThemeBtn from "./ThemeBtn";
+const links = [
+  { label: "About", href: "#about" },
+  { label: "Experience", href: "#experience" },
+  { label: "Skills", href: "#skills" },
+  { label: "Projects", href: "#projects" },
+  { label: "Contact", href: "#contact" },
+];
 
-const NavigationOptions = ({ direction }) => {
+const NavigationOptions = ({ direction = "horizontal", onNavigate }) => {
+  const isVertical = direction === "vertical";
+
   return (
     <ul
-      className={`flex justify-between items-center text-[20px] sm:text-[24px] ${
-        direction === "vertical"
-          ? "flex-col gap-[8px] text-black dark:text-black"
-          : "gap-[16px] "
+      className={`flex items-center ${
+        isVertical ? "flex-col gap-6 text-lg" : "gap-7 text-sm"
       }`}
     >
-      <a href="#about">
-        <li
-          className={`${
-            direction !== "vertical"
-              ? "hover:underline dark:hover:line-through"
-              : ""
-          }`}
-        >
-          About
+      {links.map((link) => (
+        <li key={link.href}>
+          <a
+            href={link.href}
+            onClick={onNavigate}
+            className="font-medium text-muted transition-colors hover:text-accent"
+          >
+            {link.label}
+          </a>
         </li>
-      </a>
-      <a href="#projects">
-        <li
-          className={`${
-            direction !== "vertical"
-              ? "hover:underline dark:hover:line-through"
-              : ""
-          }`}
-        >
-          Projects
-        </li>
-      </a>
-      <a href="#contact">
-        <li
-          className={`${
-            direction !== "vertical"
-              ? "hover:underline dark:hover:line-through"
-              : ""
-          }`}
-        >
-          Contact
-        </li>
-      </a>
-      <li>
-        <ThemeBtn direction={direction} />
-      </li>
+      ))}
     </ul>
   );
 };

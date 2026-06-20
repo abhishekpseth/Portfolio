@@ -1,12 +1,11 @@
-import React, { useContext } from "react";
 import { useEffect, useRef } from "react";
-import { useState } from "react";
 import Meteors from "./Meteors/Meteors";
 
-const GridBackgroundTheme = ({ children }) => {
-  const arr = Array(350).fill(0);
+// Fixed full-screen grid with a cursor-tracking accent glow + meteors.
+// Rendered only in dark mode.
+const GridBackgroundTheme = () => {
+  const cells = Array(350).fill(0);
   const cursorRef = useRef();
-  const [themeMode, setThemeMode] = useState("dark"); // Get the current theme mode from the context
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -16,29 +15,22 @@ const GridBackgroundTheme = ({ children }) => {
       }
     };
     window.addEventListener("mousemove", handleMouseMove);
-
-    // Cleanup the event listener on component unmount
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
+    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 w-screen h-screen overflow-hidden bg-black -z-10 opacity-85">
-      <div className="container relative w-full h-full max-w-full mx-auto">
-        {arr.map((_, index) => (
-          <span
-            key={index}
-            className="relative h-[100px] bg-[#111] z-10"
-          ></span>
+    <div className="fixed inset-0 -z-10 h-screen w-screen overflow-hidden bg-black">
+      <div className="grid-bg relative mx-auto h-full w-full max-w-full">
+        {cells.map((_, index) => (
+          <span key={index} className="relative z-10 h-[100px] bg-[#0e0e0e]" />
         ))}
       </div>
 
       <div
         ref={cursorRef}
-        className="cursor absolute w-[125px] h-[125px] z-[-10] rounded-full bg-green-500"
-      ></div>
-      <Meteors number={3}/>
+        className="cursor absolute -z-10 h-[140px] w-[140px] rounded-full bg-accent"
+      />
+      <Meteors number={4} />
     </div>
   );
 };

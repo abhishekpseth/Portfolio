@@ -1,27 +1,19 @@
-import React from "react";
+import { FiMoon, FiSun } from "react-icons/fi";
 import useTheme from "../contexts/theme";
 
-export default function ThemeBtn({ direction }) {
+export default function ThemeBtn() {
   const { themeMode, lightTheme, darkTheme } = useTheme();
-  const onChangeBtn = (e) => {
-    if (themeMode === "light") {
-      darkTheme();
-    } else {
-      lightTheme();
-    }
-  };
+  const isDark = themeMode === "dark";
+
+  const toggle = () => (isDark ? lightTheme() : darkTheme());
+
   return (
     <button
-      className={`p-[4px] rounded-lg border-none ${
-        themeMode === "light"
-          ? "bg-black text-white"
-          : direction === "vertical"
-          ? "bg-white text-black"
-          : "bg-yellow-400 text-black"
-      }`}
-      onClick={onChangeBtn}
+      onClick={toggle}
+      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+      className="grid h-9 w-9 place-content-center rounded-full border border-line text-ink transition-colors hover:border-accent hover:text-accent"
     >
-      {themeMode === "light" ? "Dark Mode" : "Light Mode"}
+      {isDark ? <FiSun /> : <FiMoon />}
     </button>
   );
 }
