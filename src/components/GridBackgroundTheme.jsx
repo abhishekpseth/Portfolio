@@ -30,7 +30,7 @@ const GridBackgroundTheme = () => {
         ref={cursorRef}
         className="cursor absolute -z-10 h-[140px] w-[140px] rounded-full bg-accent"
       />
-      <Meteors number={4} />
+      <Meteors number={14} />
     </div>
   );
 };

@@ -1,26 +1,64 @@
-@keyframes meteor {
+/* The wrapper carries the static rotation/scale; the inner .meteor
+   streaks along the local X axis so the glowing head leads and the
+   gradient tail trails behind it. */
+.meteor-wrap {
+  position: absolute;
+  z-index: 10;
+}
+
+.meteor {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 9999px;
+  background: #ffffff;
+  /* Bright core + soft bluish-white halo for the glowing head. */
+  box-shadow:
+    0 0 4px 1px rgba(255, 255, 255, 0.95),
+    0 0 14px 3px rgba(170, 205, 255, 0.5);
+  opacity: 0;
+  animation-name: meteor-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/* Tapering trail: bright at the head, fading to nothing behind it. */
+.meteor::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 1px;
+  width: var(--tail, 120px);
+  height: 1px;
+  transform: translateY(-50%);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.85),
+    rgba(170, 205, 255, 0.3) 40%,
+    rgba(255, 255, 255, 0)
+  );
+}
+
+@keyframes meteor-fall {
   0% {
-    transform: rotate(215deg) translateX(0px);
+    transform: translateX(0);
+    opacity: 0;
+  }
+  8% {
     opacity: 1;
   }
-  20% {
-    opacity: 0.8;
-  }
-  40% {
-    opacity: 0.6;
-  }
-  60% {
-    opacity: 0.4;
-  }
-  80% {
-    opacity: 0.2;
+  70% {
+    opacity: 1;
   }
   100% {
-    transform: rotate(215deg) translateX(-600px);
+    transform: translateX(-740px);
     opacity: 0;
   }
 }
 
-.meteor-effect {
-  animation: meteor 5s linear infinite;
+@media (prefers-reduced-motion: reduce) {
+  .meteor {
+    animation: none;
+    opacity: 0;
+  }
 }
